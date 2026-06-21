@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百家乐 · 简明指南 & 访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f5d7c0 45%, #edc6a8 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #3b2e24;
+        }
+
+        .page {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* 卡片通用样式 */
+        .card {
+            background: #fffaf5;
+            border-radius: 2.4rem;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 28px rgba(110, 70, 40, 0.08), 0 4px 12px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 36px rgba(130, 80, 50, 0.12);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 3rem 2.2rem 2.8rem;
+            background: linear-gradient(125deg, #fff8f0 0%, #ffefe0 100%);
+            border: 1px solid rgba(220, 180, 140, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 450;
+            letter-spacing: 1px;
+            color: #4f3826;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #7a624a;
+            max-width: 580px;
+            margin: 0 auto 1.2rem;
+            font-weight: 350;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #d6b69a;
+            color: #2b1e14;
+            padding: 0.25rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 460;
+            letter-spacing: 0.3px;
+            background: #e6cdb6;
+            margin-top: 0.3rem;
+        }
+
+        /* 优势区 - 三列 */
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            padding: 0.2rem 0;
+        }
+
+        .feature-item {
+            flex: 1 1 180px;
+            background: #fffaf5;
+            border-radius: 1.8rem;
+            padding: 1.6rem 1.2rem;
+            box-shadow: 0 4px 14px rgba(100, 60, 30, 0.04);
+            border: 1px solid rgba(210, 170, 140, 0.2);
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            color: #593f2b;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #5f4b39;
+        }
+
+        /* 说明区 */
+        .explain p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .explain p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #9d6e4a;
+            text-decoration: none;
+            font-weight: 460;
+            border-bottom: 1px solid #dbbca2;
+            padding-bottom: 0.08rem;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #734e31;
+            border-bottom-color: #9d6e4a;
+        }
+
+        /* FAQ摘要 */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.6rem;
+            margin-top: 0.6rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px dashed #dcc9b8;
+            padding-bottom: 0.9rem;
+        }
+
+        .faq-q {
+            font-weight: 480;
+            color: #4d3827;
+            margin-bottom: 0.2rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: #6b5745;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0.2rem 0.2rem;
+            border-top: 1px solid #e7d4c1;
+            margin-top: 0.4rem;
+        }
+
+        .footer-links .note {
+            font-size: 0.85rem;
+            color: #7e6a57;
+        }
+
+        .footer-links .ref {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #7b5e44;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #a07b5c;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .card {
+                padding: 1.6rem 1.2rem;
+                border-radius: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Hero -->
+    <div class="card hero">
+        <h1>简明指南 · 百家乐</h1>
+        <p class="sub">节奏清晰，规则简洁。无论你刚开始了解，还是希望静心梳理，这里有一份平实的叙述与提醒。</p>
+        <span class="badge">从牌桌逻辑到访问安全</span>
+    </div>
+
+    <!-- 优势区 / 特点 -->
+    <div class="features">
+        <div class="feature-item">
+            <h3>规则轮廓</h3>
+            <p>闲、庄、和三种基础选择，每局由荷官发牌，点数接近9者胜。不复杂，但需要一点沉着。</p>
+        </div>
+        <div class="feature-item">
+            <h3>节奏自控</h3>
+            <p>局间停顿、设定时限、冷静回顾——这些习惯比任何策略都更实际。</p>
+        </div>
+        <div class="feature-item">
+            <h3>访问提醒</h3>
+            <p>使用稳定连接，留意浏览器地址栏，避免来源不明的跳转。保持基本的数字意识。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：从简明指南 + 访问提醒角度展开 -->
+    <div class="card explain">
+        <p>
+            百家乐的魅力往往隐藏在它的直白里：不需要太多计算，不依赖复杂记忆，每一局都是独立的进程。
+            但正是这种简洁，容易让人忽略节奏本身。我们整理这份指南，不是为了鼓吹赢面，而是希望提供一份沉静的参照。
+            如果你打算尝试或重温，可以记住三件事：了解规则但不迷信路单；设置时间边界；以及，选择可靠的方式访问。
+        </p>
+        <p>
+            关于访问，一个小提醒：在浏览器中直接输入或从书签打开 <a href="https://apps-baijiale.com" class="inline-link">百家乐</a> 的页面是最直接的方式。
+            我们不建议通过未经核实的第三方链接跳转，也不要在公共网络下保存自动登录信息。保持清朗的浏览环境，和保持牌桌心态一样重要。
+        </p>
+        <p>
+            另外，很多玩家会忽略的一点：每一次打开页面之前，可以花五秒钟确认一下地址栏的拼写。
+            <span style="font-weight: 460;">apps-baijiale.com</span> 这个域名本身不复杂，但细微的差池都可能导向不同的页面。
+            这不是危言耸听，只是一种平实的习惯。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2 style="font-weight: 430; font-size: 1.4rem; margin-bottom: 0.8rem; color: #4a3424;">一些常见问题 · 摘要</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-q">▸ 百家乐需要记牌吗？</div>
+                <div class="faq-a">理论上不需要，每局重新洗牌。观察路单更多是个人习惯，并非规则要求。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 最稳妥的下注方式？</div>
+                <div class="faq-a">没有“最稳妥”，每种选择都有对应的赔率与庄家抽水。小额、分散、设限是常见思路。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 访问时页面加载很慢怎么办？</div>
+                <div class="faq-a">先检查本地网络，尝试刷新或更换DNS。如果持续缓慢，可以稍后再试，避免反复点击。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 如何判断一个百家乐网站是否可靠？</div>
+                <div class="faq-a">查看域名、联系信息、用户评价，以及是否有清晰的条款说明。信任需要时间验证。</div>
+            </div>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b5a49;">
+            ⚡ 以上仅为摘要，完整信息建议参考各自平台的官方说明。
+        </p>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <div class="note">
+            ©  · 简明指南 · 叙述版
+        </div>
+        <div class="ref">
+            <a href="https://apps-baijiale.com">百家乐</a>
+            <span style="color: #b29b84;">|</span>
+            <a href="#">关于</a>
+            <a href="#">阅读提醒</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
