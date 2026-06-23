@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>日常里的延伸 · 乐鱼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f4ef; /* 米白基调 */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Serif SC', 'Georgia', serif;
+            color: #2f2e2b;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 3rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 253, 248, 0.7);
+            backdrop-filter: blur(2px);
+            padding: 2.5rem 2rem 2.8rem;
+            border-radius: 32px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 开场短句 — 安静引述 */
+        .opening-line {
+            font-size: 1.6rem;
+            font-weight: 350;
+            letter-spacing: 0.01em;
+            color: #3e3b35;
+            padding-left: 1.8rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #b7aa90;
+            line-height: 1.5;
+            font-style: normal;
+            word-break: break-word;
+        }
+
+        .opening-line span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 340;
+            color: #7d7568;
+            margin-top: 0.25rem;
+            letter-spacing: 0.3px;
+            font-style: normal;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            margin-bottom: 2.3rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.3rem;
+            font-size: 1.025rem;
+            text-align: left;
+            color: #2f2e2b;
+            word-spacing: 0.5px;
+        }
+
+        .intro-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .soft-link {
+            color: #7c6e5b;
+            text-decoration: none;
+            border-bottom: 1px solid #d3c9bc;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 380;
+        }
+
+        .soft-link:hover {
+            color: #4f453a;
+            border-bottom-color: #4f453a;
+        }
+
+        /* 特点列表 — 温和陈列 */
+        .trait-list {
+            background: #f2ede4;
+            border-radius: 24px;
+            padding: 1.8rem 2rem 2rem;
+            margin: 2.2rem 0 2rem;
+            list-style: none;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .trait-list li {
+            padding: 0.65rem 0 0.65rem 2rem;
+            position: relative;
+            font-size: 1.02rem;
+            border-bottom: 1px solid #e3dbcf;
+            color: #2f2c27;
+        }
+
+        .trait-list li:last-child {
+            border-bottom: none;
+        }
+
+        .trait-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.25rem;
+            color: #9b8c78;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 1;
+            top: 0.5rem;
+        }
+
+        /* 引用 / 提示框 — 温和摘录 */
+        .notice-block {
+            background: #ede7dc;
+            border-radius: 20px;
+            padding: 1.3rem 1.8rem;
+            margin: 2.2rem 0 1.8rem;
+            border-left: 6px solid #bfb19b;
+            font-size: 0.98rem;
+            color: #3b3730;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .notice-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .notice-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .notice-block strong {
+            font-weight: 480;
+            color: #3a332a;
+        }
+
+        /* FAQ 摘要 — 极简 */
+        .faq-mini {
+            margin: 2rem 0 1.5rem;
+            border-top: 1px solid #dfd7cc;
+            padding-top: 1.5rem;
+        }
+
+        .faq-item {
+            padding: 0.6rem 0;
+        }
+
+        .faq-q {
+            font-weight: 450;
+            color: #3b362e;
+            font-size: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-a {
+            color: #5a5349;
+            font-size: 0.96rem;
+            padding-left: 0.7rem;
+            border-left: 2px solid #d5cbbc;
+            padding-left: 1rem;
+            margin-top: 0.1rem;
+        }
+
+        /* 温和结尾 */
+        .gentle-closing {
+            margin-top: 2.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px dashed #d9d0c2;
+            font-size: 0.98rem;
+            color: #5c554a;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .gentle-closing a {
+            color: #6b5f4f;
+            text-decoration: none;
+            border-bottom: 1px solid #c7bcab;
+            transition: border-color 0.2s;
+        }
+
+        .gentle-closing a:hover {
+            border-bottom-color: #4f4436;
+            color: #4f4436;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 1rem 2rem;
+            }
+            .page-wrap {
+                padding: 1.8rem 1.2rem 2rem;
+                border-radius: 24px;
+            }
+            .opening-line {
+                font-size: 1.35rem;
+                padding-left: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+            .trait-list {
+                padding: 1.2rem 1.2rem 1.5rem;
+            }
+            .trait-list li {
+                padding-left: 1.5rem;
+                font-size: 0.98rem;
+            }
+            .notice-block {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .opening-line {
+                font-size: 1.2rem;
+            }
+            .page-wrap {
+                padding: 1.2rem 0.8rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 开场短句 -->
+    <div class="opening-line">
+        查询，往往是一次安静对照的开始。
+        <span>—— 从碎片信息到有温度的延伸</span>
+    </div>
+
+    <!-- 承接段落 -->
+    <div class="intro-text">
+        <p>每天我们都会遇到陌生的概念、想确认的细节，或者只是偶然瞥见一个名字，想要多了解一点。这种朴素的好奇，不需要太复杂的入口——一个清爽的界面，一份持续更新的内容，就能让对照和延伸变得顺其自然。</p>
+        <p>就像在词典里翻到某个词，然后顺着引文读下去。在移动端，<a href="https://mobile-app-leyu.com" class="soft-link">乐鱼</a> 恰好提供了类似的空间：没有过多干扰，信息层次清晰，适合进行快速查阅，也适合停下来细看。</p>
+    </div>
+
+    <!-- 特点列表 (自然陈列，而非功能堆砌) -->
+    <ul class="trait-list">
+        <li>内容组织偏重条目与对照，便于横向比较</li>
+        <li>页面之间跳转流畅，减少等待时的中断感</li>
+        <li>更新节奏稳定，覆盖的话题范围在逐渐扩展</li>
+        <li>视觉干净克制，把注意力留给文字本身</li>
+        <li>适合手机屏幕的排版，单手操作也舒适</li>
+    </ul>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="notice-block">
+        <p><strong>一点观察</strong>  ·  很多实用工具往往被设计成“用完即走”，但偶尔我们也会想在一个地方多停留一会儿——不是为了消磨时间，而是因为内容本身引发了一点联想。这种温和的延伸感，正是查询之外的附加值。</p>
+    </div>
+
+    <!-- FAQ 摘要（轻量，不喧宾夺主） -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">适合什么人日常使用？</div>
+            <div class="faq-a">常需要查阅对照信息、对内容广度有一定需求的人，或只是喜欢清爽阅读体验的使用者。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容偏重哪一类？</div>
+            <div class="faq-a">涵盖多个信息面，以条目和简述为主，方便快速定位和延伸阅读。</div>
+        </div>
+    </div>
+
+    <!-- 温和结尾 —— 自然收束，句子中包含链接 -->
+    <div class="gentle-closing">
+        如果你也在寻找一个可以随手查阅、又能偶尔停下来延伸思考的地方，也许 <a href="https://mobile-app-leyu.com">乐鱼</a> 可以成为你的日常选项之一。不必抱着明确的目的点开，有时候只是随便翻翻，也能收获意外的脉络。
+    </div>
+
+</div>
+</body>
+</html>
